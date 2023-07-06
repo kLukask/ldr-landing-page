@@ -1,0 +1,23 @@
+@import 'utilities/_variables.scss';
+
+.nav-wrapper {
+  width: 100%;
+  background-color: $navBackground;
+  padding: 1.2rem 1.5rem;
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li a {
+      color: $navColor;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0 1rem;
+      text-decoration: none;
+    }
+  }
+}

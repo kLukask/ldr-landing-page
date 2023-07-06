@@ -11,8 +11,29 @@ const routes: Routes = [
     path: 'home',
     loadComponent: () =>
       import('./feature-modules/home/components/home.component').then(
-        (mod) => mod.HomeComponent
+        (m) => m.HomeComponent
       ),
+  },
+  {
+    path: 'join-us',
+    loadComponent: () =>
+      import('./feature-modules/join-us/components/join/join.component').then(
+        (m) => m.JoinComponent
+      ),
+  },
+  {
+    path: 'training',
+    loadComponent: () =>
+      import(
+        './feature-modules/training/components/training/training.component'
+      ).then((m) => m.TrainingComponent),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import(
+        './feature-modules/contact/components/contact/contact.component'
+      ).then((m) => m.ContactComponent),
   },
 ];
 
