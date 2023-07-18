@@ -1,0 +1,14 @@
+@import "utilities/_variables.scss";
+@import "utilities/_functions.scss";
+
+@mixin blueButton() {
+  background: $dark-blue;
+  border-radius: 6px;
+  color: $white;
+  outline: none;
+  padding: pxToRem(10px) pxToRem(15px);
+  font-size: pxToRem(18px);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}

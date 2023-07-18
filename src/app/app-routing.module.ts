@@ -40,7 +40,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules, // Change strategy when app grows in size
+      preloadingStrategy: PreloadAllModules, // Change strategy when app grows in sizea
     }),
   ],
   exports: [RouterModule],

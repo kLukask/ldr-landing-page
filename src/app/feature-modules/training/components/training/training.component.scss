@@ -1,0 +1,60 @@
+@import "utilities/_variables.scss";
+@import "utilities/_functions.scss";
+
+.training-wrapper {
+  display: grid;
+  grid-template-areas:
+    "title"
+    "sessions"
+    "events"
+    "schedule";
+  row-gap: 3rem;
+  column-gap: 2rem;
+
+  @include respond-to("md") {
+    grid-template-areas:
+      "title title"
+      "sessions events"
+      "schedule schedule";
+    grid-template-columns: repeat(2, 0.5fr);
+  }
+
+  .training-wrapper__title {
+    grid-area: title;
+    font-size: 2rem;
+    color: $green;
+    font-weight: 700;
+
+    @include respond-to("sm") {
+      font-size: 3rem;
+    }
+  }
+
+  .training-wrapper__sessions {
+    grid-area: sessions;
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1rem;
+
+      li {
+        margin: 0.2rem;
+      }
+    }
+  }
+
+  .training-wrapper__events {
+    grid-area: events;
+  }
+
+  .training-wrapper__schedule {
+    grid-area: schedule;
+  }
+}
+
+h2 {
+  color: $green;
+  font-weight: 500;
+  font-size: pxToRem(24px);
+  margin-bottom: 1rem;
+}

@@ -1,1 +1,91 @@
-<p>join works!</p>
+<div class="join-wrapper">
+  <h1 class="join-wrapper__title">Join us</h1>
+  <section class="join-wrapper__benefits">
+    <ul>
+      <li>
+        <img src="assets/tick-mark.svg" alt="tick-mark" />
+        <p>Training together to stay motivated and learn more about running</p>
+      </li>
+      <li>
+        <img src="assets/tick-mark.svg" alt="tick-mark" />
+        <p>
+          Affiliation to England Athletics giving members discounts on race fees
+        </p>
+      </li>
+      <li>
+        <img src="assets/tick-mark.svg" alt="tick-mark" />
+        <p>Free entry to Lincolnshire league cross country events</p>
+      </li>
+      <li>
+        <img src="assets/tick-mark.svg" alt="tick-mark" />
+        <p>Monthly track sessions</p>
+      </li>
+      <li>
+        <img src="assets/tick-mark.svg" alt="tick-mark" />
+        <p>Socialise together at special club events and keep running fun</p>
+      </li>
+    </ul>
+  </section>
+  <img class="join-wrapper__image" src="assets/LDR-1.jpg" alt="ldr" />
+  <section class="join-wrapper__membership">
+    <h2>Membership fee</h2>
+    <p class="bold">
+      The membership fee for 2022/2023 is remaining at £35 for the year.
+    </p>
+    <p>
+      This also covers affiliation with England Athletics, so you will receive
+      your EA card soon after joining.
+    </p>
+    <p>
+      LDR Membership will run from 1st April 2023 to 31 March 2024. Anyone
+      joining part way through the club year may be eligible for a reduction in
+      the fees, depending on what time of year they join. Please bear in mind
+      that EA affiliation costs are not pro rata so there will always be a
+      minimum membership fee to cover this.
+    </p>
+    <button class="join-wrapper__contact-button" type="submit">Contact</button>
+  </section>
+  <section class="join-wrapper__club-nights">
+    <h2>Club nights</h2>
+    <p>
+      <span class="bold">The club runs start promptly at 7:00 PM,</span> please
+      aim to meet up a few minutes earlier for any announcements and to greet
+      any new members.
+    </p>
+    <span class="day-highlight">Tuesday</span>
+    <p>
+      Tuesday nights we start from the North Kesteven Sports Centre (LN6 9AX),
+      except for the last Tuesday of the month, which is now our track night at
+      LSST sports facility (LN5 8PW).
+    </p>
+    <span class="day-highlight">Thursday</span>
+    <p>
+      Thursday nights we vary our start location in Lincoln and the surrounding
+      areas, to add spice and the occasional hill to your training. Please see
+      the <span>training schedule</span> for further details.
+    </p>
+    <h2>Track nights</h2>
+    <p>
+      <span class="bold">For our track nights we charge £2 per session,</span>
+      payable on the night or in advance (this covers some of the clubs track
+      hire costs, and enables us to keep the overall membership fee for the year
+      low).
+    </p>
+  </section>
+  <section class="join-wrapper__faq">
+    <h2>FAQs</h2>
+    <ul>
+      <li class="join-wrapper__list-item" *ngFor="let faq of clubFaqs">
+        <div class="join-wrapper__list-item-click-row">
+          <h3>{{ faq.question }}</h3>
+          <button (click)="faq.active = !faq.active">
+            <img src="assets/plus-solid.svg" alt="plus" />
+          </button>
+        </div>
+        <p [@toggleList]="faq.active ? 'open' : 'closed'">
+          {{ faq.answer }}
+        </p>
+      </li>
+    </ul>
+  </section>
+</div>

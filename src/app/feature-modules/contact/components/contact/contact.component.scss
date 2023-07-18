@@ -1,0 +1,97 @@
+@import "utilities/_variables.scss";
+@import "utilities/_functions.scss";
+@import "components/_buttons.scss";
+
+.contact-wrapper {
+  .contact-wrapper__title {
+    font-size: 2rem;
+    color: $green;
+    font-weight: 700;
+
+    @include respond-to("sm") {
+      font-size: 3rem;
+    }
+  }
+
+  .contact-wrapper__form {
+    display: grid;
+    grid-template-areas:
+      "description"
+      "name-email"
+      "message"
+      "submit";
+    grid-template-columns: minmax(auto, pxToRem(650px));
+    justify-content: center;
+    row-gap: 1rem;
+    margin-top: 5rem;
+    justify-items: center;
+
+    @include respond-to("sm") {
+      justify-items: baseline;
+    }
+
+    .contact-wrapper__form-description {
+      grid-area: description;
+      text-align: center;
+
+      @include respond-to("sm") {
+        text-align: left;
+      }
+    }
+
+    .contact-wrapper__form-name-email {
+      grid-area: name-email;
+      display: flex;
+      flex-flow: column;
+      gap: pxToRem(10px);
+
+      @include respond-to("sm") {
+        flex-flow: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      div {
+        display: flex;
+        flex-flow: column;
+      }
+    }
+
+    .contact-wrapper__form-message {
+      grid-area: message;
+      display: flex;
+      flex-flow: column;
+
+      @include respond-to("sm") {
+        width: 100%;
+      }
+    }
+
+    input,
+    textarea {
+      border-radius: 6px;
+      border: 1px solid $input-placeholder;
+      background: $white;
+      padding: pxToRem(15px) pxToRem(15px);
+      outline: none;
+      width: 100%;
+
+      &::placeholder {
+        color: $input-placeholder;
+        font-weight: 400;
+      }
+    }
+
+    textarea {
+      min-height: 5rem;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-wrapper__button {
+      @include blueButton();
+    }
+  }
+}

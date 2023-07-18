@@ -1,6 +1,13 @@
-.layout-container{
+@import "utilities/_functions.scss";
+
+.layout-container {
+  height: 100%;
 
   .layout-container__content {
-    padding: 2rem;
+    padding: 2rem 2rem;
+
+    @include respond-to("sm") {
+      padding: 2rem 4rem;
+    }
   }
 }
