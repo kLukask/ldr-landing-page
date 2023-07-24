@@ -35,6 +35,13 @@ const routes: Routes = [
         './feature-modules/contact/components/contact/contact.component'
       ).then((m) => m.ContactComponent),
   },
+  {
+    path: 'championship-events',
+    loadComponent: () =>
+      import(
+        './feature-modules/championship-events/components/championship-events/championship-events.component'
+      ).then((m) => m.ChampionshipEventsComponent),
+  },
 ];
 
 @NgModule({

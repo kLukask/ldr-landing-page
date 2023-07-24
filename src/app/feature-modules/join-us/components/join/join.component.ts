@@ -7,11 +7,12 @@ import {
 } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-join',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './join.component.html',
   styleUrls: ['./join.component.scss'],
   animations: [
@@ -45,9 +46,10 @@ export class JoinComponent {
           offers a free trial session for you to get a taste of what we offer.`,
       active: false,
     },
+    {
+      question: 'Do I need previous running experience?',
+      answer: 'No, we welcome runners of all abilities.',
+      active: false,
+    },
   ];
-
-  toggleListRow(event: any): void {
-    console.log(event);
-  }
 }

@@ -49,6 +49,83 @@
 
   .training-wrapper__schedule {
     grid-area: schedule;
+
+    input {
+      min-width: 15rem;
+      width: 35%;
+      padding: 0.5rem;
+      border: 1px solid $grey-1;
+      border-radius: 8px;
+      margin: 1rem 0;
+      color: $grey-1;
+      font-size: 1rem;
+      outline: none;
+
+      &::placeholder {
+        color: $input-placeholder;
+      }
+    }
+
+    .training-wrapper__table-container {
+      display: flex;
+      flex-flow: column;
+      height: 40rem;
+      overflow: auto;
+
+      .table-mobile-label {
+        width: 10rem;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      mat-table {
+        mat-header-row {
+          display: none;
+          background-color: $white;
+
+          mat-header-cell {
+            padding: 0;
+            border-bottom: 1px solid $table-row-border;
+          }
+        }
+
+        mat-row {
+          flex-direction: column;
+          align-items: start;
+          background-color: $table-row-grey;
+
+          &:nth-child(even) {
+            background-color: $table-row-grey;
+          }
+
+          &:nth-child(odd) {
+            background-color: $white;
+          }
+
+          mat-cell {
+            padding: 0.7rem 0.7rem 0.7rem 0;
+            border-bottom: 1px solid $table-row-border;
+          }
+        }
+      }
+
+      @include respond-to("sm") {
+        .table-mobile-label {
+          display: none;
+        }
+
+        mat-table {
+          mat-header-row {
+            display: flex;
+          }
+
+          mat-row {
+            flex-direction: row;
+            align-items: center;
+          }
+        }
+      }
+    }
   }
 }
 

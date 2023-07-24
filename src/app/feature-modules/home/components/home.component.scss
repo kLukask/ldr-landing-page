@@ -1,12 +1,6 @@
 @import "utilities/_variables.scss";
 @import "utilities/_functions.scss";
 
-span {
-  color: $green;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 section {
   max-width: 70ch;
 }
@@ -32,11 +26,8 @@ section {
   }
 
   .home-wrapper__title {
-    font-size: 2rem;
     text-align: center;
-    color: $green;
     grid-area: title;
-    font-weight: 700;
 
     @include respond-to("sm") {
       font-size: 3rem;

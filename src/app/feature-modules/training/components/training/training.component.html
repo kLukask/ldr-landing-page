@@ -29,10 +29,34 @@
     <p>Coming soon</p>
   </section>
   <section class="training-wrapper__schedule">
-    <h2>Training schedule (dynamic date)</h2>
+    <h2>
+      Training schedule {{ currentDate | date : "yyyy" }} /
+      {{ futureDate | date : "yyyy" }}
+    </h2>
     <p>
       All runs start at 7:00pm, but please aim to arrive a few minutes earlier
       for any announcements, and to greet any new members.
     </p>
+    <input type="text" placeholder="Search" (keyup)="searchTable($event)" />
+    <section class="training-wrapper__table-container">
+      <mat-table [dataSource]="trainingSchedule">
+        <ng-container
+          *ngFor="let column of columns"
+          [matColumnDef]="column.columnDef"
+        >
+          <mat-header-cell *matHeaderCellDef>
+            {{ column.header }}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="table-mobile-label">{{ column.header }}</span>
+            {{ column.cell(row) }}
+          </mat-cell>
+        </ng-container>
+        <mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </section>
   </section>
 </div>

@@ -23,7 +23,6 @@ h2 {
   display: grid;
   grid-template-areas:
     "title"
-    "image-area"
     "membership-benefits"
     "membership-fee"
     "club-nights"
@@ -34,17 +33,14 @@ h2 {
 
   @include respond-to("lg") {
     grid-template-areas:
-      "title image-area"
-      "membership-benefits image-area"
+      "title ."
+      "membership-benefits ."
       "membership-fee club-nights"
       "faq club-nights";
     justify-items: baseline;
   }
 
   .join-wrapper__title {
-    font-size: 2rem;
-    color: $green;
-    font-weight: 700;
     grid-area: title;
     justify-self: flex-start;
 
@@ -79,16 +75,6 @@ h2 {
     }
   }
 
-  .join-wrapper__image {
-    grid-area: image-area;
-    object-fit: cover;
-    border-radius: 25px;
-
-    @include respond-to("lg") {
-      max-width: 80%;
-    }
-  }
-
   .join-wrapper__membership {
     grid-area: membership-fee;
 
@@ -116,6 +102,7 @@ h2 {
     ul {
       display: flex;
       flex-flow: column;
+      gap: 1rem;
 
       .join-wrapper__list-item {
         display: flex;

@@ -1,0 +1,152 @@
+<div class="championship-events-wrapper">
+  <section class="championship-events-wrapper__intro">
+    <h1 class="page-heading">Club championship</h1>
+    <p>Welcome to the Lincoln & District Runners 2023 Club Championship.</p>
+    <p>
+      This year we have an even greater and varied selection of races that can
+      earn you points, and have included ParkRun too.
+    </p>
+    <p>
+      As always there is the incentive of great prizes on offer for the winning
+      men and ladies at the end of the year. Details of events are shown further
+      down the page, but here are the general rules of the competition.
+    </p>
+  </section>
+  <section class="championship-events-wrapper__rules">
+    <h2 class="page-sub-heading">Championship rules</h2>
+    <ul>
+      <li *ngFor="let rule of championshipRules">
+        {{ rule }}
+      </li>
+    </ul>
+    <p>
+      If an LWAC 5K event falls on the same evening as the LDR Track night, then
+      you have the option to run the 5K on the track, and that time will be
+      used. It will also count as part of the series and still be elegible for
+      the bonus 5 points.
+    </p>
+  </section>
+  <section class="championship-events-wrapper__events">
+    <h2 class="page-sub-heading">2023 Championship events</h2>
+    <p>
+      Please find the championship events below. Click on the event name to
+      visit the race website.
+    </p>
+    <p>
+      * As race dates are finalised the table will be updated. Cancelled races
+      will be removed from the championship.
+    </p>
+    <mat-table [dataSource]="championshipEvents">
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef>Event #</mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">{{
+          i + 1
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="event">
+        <mat-header-cell *matHeaderCellDef>Event</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <a
+            class="page-hyperlink"
+            [href]="element.event_link"
+            target="_blank"
+            >{{ element.event }}</a
+          >
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="event_date">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.event_date }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row
+        *matHeaderRowDef="champEventsColumns; sticky: true"
+      ></mat-header-row>
+      <mat-row *matRowDef="let row; columns: champEventsColumns"></mat-row>
+    </mat-table>
+  </section>
+</div>
+
+<section class="standings">
+  <h2 class="page-sub-heading">Club championship standings</h2>
+  <div class="standings__table-wrapper">
+    <div class="standings__men">
+      <h3>Men</h3>
+      <mat-tab-group (selectedTabChange)="menTabChanged($event)">
+        <mat-tab label="2021">
+          <ng-template matTabContent>
+            <ng-container *ngTemplateOutlet="standingsTableMen"></ng-container>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="2022">
+          <ng-template matTabContent>
+            <ng-container *ngTemplateOutlet="standingsTableMen"></ng-container>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="2023">
+          <ng-template matTabContent>
+            <ng-container *ngTemplateOutlet="standingsTableMen"></ng-container>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="standings__ladies">
+      <h3>Ladies</h3>
+      <mat-tab-group (selectedTabChange)="ladiesTabChanged($event)">
+        <mat-tab label="2021">
+          <ng-template matTabContent>
+            <ng-container
+              *ngTemplateOutlet="standingsTableLadies"
+            ></ng-container>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="2022">
+          <ng-template matTabContent>
+            <ng-container
+              *ngTemplateOutlet="standingsTableLadies"
+            ></ng-container>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="2023">
+          <ng-template matTabContent>
+            <ng-container
+              *ngTemplateOutlet="standingsTableLadies"
+            ></ng-container>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</section>
+
+<ng-template #standingsTableMen>
+  <mat-table [dataSource]="champStandingsMen">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let result">{{ result.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef>Points</mat-header-cell>
+      <mat-cell *matCellDef="let result">{{ result.points }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="champStandingsColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: champStandingsColumns"></mat-row>
+  </mat-table>
+</ng-template>
+
+<ng-template #standingsTableLadies>
+  <mat-table [dataSource]="champStandingsLadies">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let result">{{ result.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef>Points</mat-header-cell>
+      <mat-cell *matCellDef="let result">{{ result.points }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="champStandingsColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: champStandingsColumns"></mat-row>
+  </mat-table>
+</ng-template>

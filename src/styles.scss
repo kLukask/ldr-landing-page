@@ -1,4 +1,6 @@
 @import url("https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500;600;800&display=swap");
+@import "utilities/_variables.scss";
+@import "utilities/_functions.scss";
 
 html,
 body {
@@ -35,4 +37,46 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.page-heading {
+  font-size: 2rem;
+  color: $green;
+  font-weight: 700;
+
+  @include respond-to("sm") {
+    font-size: 3rem;
+  }
+}
+
+.page-sub-heading {
+  color: $green;
+  font-weight: 500;
+  font-size: pxToRem(24px);
+  margin-bottom: 1rem;
+}
+
+.page-hyperlink {
+  text-decoration: none;
+  color: $green;
+  font-weight: 700;
+}
+
+mat-table {
+  mat-row {
+    background-color: $table-row-grey;
+
+    &:nth-child(even) {
+      background-color: $table-row-grey;
+    }
+
+    &:nth-child(odd) {
+      background-color: $white;
+    }
+
+    mat-cell {
+      padding: 0.7rem 0.7rem 0.7rem 0;
+      border-bottom: 1px solid $table-row-border;
+    }
+  }
 }

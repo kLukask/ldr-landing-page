@@ -1,0 +1,91 @@
+@import "utilities/_variables.scss";
+@import "utilities/_functions.scss";
+
+.championship-events-wrapper {
+  display: grid;
+  grid-template-areas:
+    "intro"
+    "champ-rules"
+    "events";
+  row-gap: 3rem;
+  column-gap: 2rem;
+
+  @include respond-to("lg") {
+    grid-template-areas:
+      "intro champ-rules"
+      "events events";
+  }
+
+  .championship-events-wrapper__intro {
+    grid-area: intro;
+
+    @include respond-to("lg") {
+      width: 80%;
+    }
+  }
+
+  .championship-events-wrapper__rules {
+    grid-area: champ-rules;
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1rem;
+
+      li {
+        margin: 0.2rem;
+      }
+    }
+  }
+
+  .championship-events-wrapper__events {
+    grid-area: events;
+
+    mat-table {
+      max-height: 35rem;
+      overflow: auto;
+      margin-top: 1rem;
+    }
+  }
+
+  section > p {
+    margin-top: 1rem;
+  }
+}
+
+.standings {
+  margin-top: 3rem;
+
+  .standings__table-wrapper {
+    display: flex;
+    flex-flow: column;
+    gap: 3rem;
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    @include respond-to("md") {
+      flex-flow: row;
+      gap: 1rem;
+    }
+
+    // Select both divs
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
+// ::ng-deep is used to override the default styles of the Angular Material components
+// This is not recommended, because ::ng-deep is deprecated and will be removed in the future
+::ng-deep .mat-mdc-tab-labels {
+  .mdc-tab--active {
+    background-color: $grey-1;
+  }
+}
+
+::ng-deep .mat-mdc-tab-labels {
+  color: $white;
+  background-color: $dark-blue;
+}
